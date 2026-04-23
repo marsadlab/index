@@ -1,17 +1,363 @@
 <!DOCTYPE html>
+<html lang="en" data-astro-cid-37fxchfa>
 
-<html data-astro-cid-37fxchfa="" lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Resources — MARSAD Lab</title>
-<meta content="MARSAD Lab at Northwestern University in Qatar. Arabic NLP, digital humanities, and computational social science." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="img/marsad-logo.png" rel="icon" type="image/png"/>
-<link href="_astro/grants.Z9KpqIOV.css" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources — MARSAD Lab</title>
+    <meta name="description"
+        content="MARSAD Lab at Northwestern University in Qatar. Arabic NLP, digital humanities, and computational social science.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/marsad-logo.png">
+    <style>
+        :root {
+            --ink: #0a0a0a;
+            --ink-2: #262626;
+            --ink-3: #525252;
+            --muted: #8a8a8a;
+            --line: #e8e8e5;
+            --line-2: #f0f0ed;
+            --bg: #fafaf8;
+            --bg-2: #f2f2ee
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.55;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            font-feature-settings: "ss01", "cv11"
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        nav.topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #fafaf8e0;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px
+        }
+
+        .brand {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .brand-mark {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--ink);
+            border-radius: 50%
+        }
+
+        .brand-sub {
+            font-size: .78rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-left: 4px
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            flex: 1;
+            justify-content: center
+        }
+
+        .nav-links a {
+            font-size: .9rem;
+            color: var(--ink);
+            opacity: .72;
+            transition: opacity .15s
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            opacity: 1
+        }
+
+        .nav-links a.active {
+            font-weight: 500
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            font-size: .88rem;
+            font-weight: 500;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all .15s;
+            font-family: inherit;
+            white-space: nowrap;
+            cursor: pointer
+        }
+
+        .btn-dark {
+            background: var(--ink);
+            color: var(--bg)
+        }
+
+        .btn-dark:hover {
+            background: var(--ink-2)
+        }
+
+        .btn-light {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--line)
+        }
+
+        .btn-light:hover {
+            border-color: var(--ink)
+        }
+
+        .page-shell {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 60px
+        }
+
+        .breadcrumb {
+            grid-column: 2;
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 20px
+        }
+
+        .breadcrumb a {
+            color: var(--ink-3)
+        }
+
+        .breadcrumb a:hover {
+            color: var(--ink)
+        }
+
+        .breadcrumb .sep {
+            margin: 0 8px;
+            opacity: .5
+        }
+
+        .side-subnav {
+            list-style: none;
+            position: sticky;
+            top: 80px;
+            align-self: start
+        }
+
+        .side-subnav li {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .side-subnav li:first-child {
+            border-top: 1px solid var(--line)
+        }
+
+        .side-subnav a {
+            display: block;
+            padding: 10px 0;
+            font-size: .88rem;
+            color: var(--ink-2)
+        }
+
+        .side-subnav a:hover {
+            color: var(--ink)
+        }
+
+        .side-subnav a.active {
+            color: var(--ink);
+            font-weight: 500
+        }
+
+        .side-subnav a.active:before {
+            content: "→ ";
+            color: var(--muted)
+        }
+
+        .side-subnav .section-label {
+            padding: 16px 0 6px;
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--muted);
+            border: none
+        }
+
+        .page-main {
+            min-width: 0
+        }
+
+        h1.page-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: -.02em;
+            margin-bottom: 20px
+        }
+
+        .page-lede {
+            font-size: 1.02rem;
+            color: var(--ink-2);
+            line-height: 1.6;
+            max-width: 760px;
+            margin-bottom: 40px
+        }
+
+        .page-lede a {
+            color: var(--ink);
+            border-bottom: 1px solid var(--line)
+        }
+
+        h2.block-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -.015em;
+            margin: 48px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        h2.block-title:first-of-type {
+            margin-top: 0
+        }
+
+        footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--line);
+            background: var(--bg);
+            font-size: .82rem;
+            color: var(--muted)
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap
+        }
+
+        footer a {
+            color: var(--ink-3)
+        }
+
+        footer a:hover {
+            color: var(--ink)
+        }
+
+        @media(max-width:900px) {
+            .nav-inner {
+                padding: 14px 20px
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .page-shell {
+                grid-template-columns: 1fr;
+                padding: 24px 20px 60px;
+                gap: 24px
+            }
+
+            .breadcrumb {
+                grid-column: 1
+            }
+
+            .side-subnav {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px 16px;
+                padding: 12px 0;
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line)
+            }
+
+            .side-subnav li {
+                border: none
+            }
+
+            .side-subnav a {
+                padding: 4px 0;
+                font-size: .85rem
+            }
+
+            .side-subnav .section-label {
+                display: none
+            }
+
+            .footer-inner {
+                padding: 0 20px
+            }
+        }
+
+        .brand-logo[data-astro-cid-37fxchfa] {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 6px;
+            display: inline-block
+        }
+
+        .brand-text[data-astro-cid-37fxchfa] {
+            font-weight: 600;
+            letter-spacing: -.015em;
+            font-size: 1.05rem
+        }
+
         .access-note[data-astro-cid-gauq755v] {
             margin-bottom: 24px;
             padding: 18px 22px;
@@ -184,6 +530,40 @@
             border-radius: 999px
         }
 
+        .origin-section[data-astro-cid-gauq755v] {
+            margin-top: 32px
+        }
+
+        .origin-section[data-astro-cid-gauq755v]:first-of-type {
+            margin-top: 24px
+        }
+
+        .origin-header[data-astro-cid-gauq755v] {
+            border-top: 2px solid var(--ink);
+            padding-top: 18px;
+            margin-bottom: 18px
+        }
+
+        .origin-title[data-astro-cid-gauq755v] {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin: 0 0 6px
+        }
+
+        .origin-desc[data-astro-cid-gauq755v] {
+            font-size: .92rem;
+            color: var(--ink-3);
+            line-height: 1.55;
+            margin: 0;
+            max-width: 720px
+        }
+
+        .origin-section[data-astro-cid-gauq755v] .category[data-astro-cid-gauq755v] {
+            margin-left: 0
+        }
+
         .r-action[data-astro-cid-gauq755v] {
             display: flex;
             flex-direction: column;
@@ -229,612 +609,1059 @@
         }
     </style>
 </head>
-<body data-astro-cid-37fxchfa="">
-<nav class="topbar" data-astro-cid-37fxchfa="">
-<div class="nav-inner" data-astro-cid-37fxchfa=""> <a class="brand" data-astro-cid-37fxchfa="" href="index.html"> <img alt="MARSAD Lab" class="brand-logo" data-astro-cid-37fxchfa="" src="img/marsad-logo.png"/> <span class="brand-text" data-astro-cid-37fxchfa="">MARSAD Lab</span> </a>
-<ul class="nav-links" data-astro-cid-37fxchfa="">
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="index.html">Home</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="research.html">Research</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="publications.html">Publications</a>
-</li>
-<li data-astro-cid-37fxchfa=""><a class="active" data-astro-cid-37fxchfa="" href="resources.html">Resources</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="grants.html">Projects</a></li>
-<li data-astro-cid-37fxchfa=""><a data-astro-cid-37fxchfa="" href="https://marsadlab.com" rel="noopener" target="_blank">MARSAD AI ↗</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="researchers.html">Team</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="teaching.html">Teaching</a></li>
-<li data-astro-cid-37fxchfa=""><a class="" data-astro-cid-37fxchfa="" href="news.html">News</a></li>
-</ul>
-<div class="nav-actions" data-astro-cid-37fxchfa=""> <a class="btn btn-dark" data-astro-cid-37fxchfa="" href="work-with-us.html">Work with us ↗</a> </div>
-</div>
-</nav>
-<div class="page-shell" data-astro-cid-gauq755v="">
-<div class="breadcrumb" data-astro-cid-gauq755v=""> <a data-astro-cid-gauq755v="" href="index.html">Home</a><span class="sep" data-astro-cid-gauq755v="">/</span><span data-astro-cid-gauq755v="">Resources</span> </div>
-<ul class="side-subnav" data-astro-cid-gauq755v="">
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="research.html">Research</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="publications.html">Publications</a></li>
-<li data-astro-cid-gauq755v=""><a class="active" data-astro-cid-gauq755v="" href="resources.html">Resources</a>
-</li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="grants.html">Projects</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="https://marsadlab.com" rel="noopener" target="_blank">MARSAD AI ↗</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="researchers.html">Team</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="teaching.html">Teaching</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="news.html">News</a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="work-with-us.html">Work With Us</a></li>
-<li class="section-label" data-astro-cid-gauq755v="">Categories</li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="#corpora">Corpora <span class="yr-pill" data-astro-cid-gauq755v="">58</span></a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="#lexicons">Lexicons <span class="yr-pill" data-astro-cid-gauq755v="">3</span></a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="#tools">Tools <span class="yr-pill" data-astro-cid-gauq755v="">3</span></a></li>
-<li data-astro-cid-gauq755v=""><a data-astro-cid-gauq755v="" href="#guidelines">Guidelines <span class="yr-pill" data-astro-cid-gauq755v="">3</span></a></li>
-</ul>
-<div class="page-main" data-astro-cid-gauq755v="">
-<h1 class="page-title" data-astro-cid-gauq755v="">Resources</h1>
-<p class="page-lede" data-astro-cid-gauq755v="">
+
+<body data-astro-cid-37fxchfa>
+    <nav class="topbar" data-astro-cid-37fxchfa>
+        <div class="nav-inner" data-astro-cid-37fxchfa> <a href="index.html" class="brand" data-astro-cid-37fxchfa> <img
+                    src="img/marsad-logo.png" alt="MARSAD Lab" class="brand-logo" data-astro-cid-37fxchfa> <span
+                    class="brand-text" data-astro-cid-37fxchfa>MARSAD Lab</span> </a>
+            <ul class="nav-links" data-astro-cid-37fxchfa>
+                <li data-astro-cid-37fxchfa><a href="index.html" class data-astro-cid-37fxchfa>Home</a></li>
+                <li data-astro-cid-37fxchfa><a href="research.html" class data-astro-cid-37fxchfa>Research</a></li>
+                <li data-astro-cid-37fxchfa><a href="publications.html" class data-astro-cid-37fxchfa>Publications</a>
+                </li>
+                <li data-astro-cid-37fxchfa><a href="resources.html" class="active"
+                        data-astro-cid-37fxchfa>Resources</a></li>
+                <li data-astro-cid-37fxchfa><a href="grants.html" class data-astro-cid-37fxchfa>Projects</a></li>
+                <li data-astro-cid-37fxchfa><a href="https://marsadlab.com" target="_blank" rel="noopener"
+                        data-astro-cid-37fxchfa>MARSAD AI ↗</a></li>
+                <li data-astro-cid-37fxchfa><a href="researchers.html" class data-astro-cid-37fxchfa>Team</a></li>
+                <li data-astro-cid-37fxchfa><a href="teaching.html" class data-astro-cid-37fxchfa>Teaching</a></li>
+                <li data-astro-cid-37fxchfa><a href="news.html" class data-astro-cid-37fxchfa>News</a></li>
+            </ul>
+            <div class="nav-actions" data-astro-cid-37fxchfa> <a href="work-with-us.html" class="btn btn-dark"
+                    data-astro-cid-37fxchfa>Work with us ↗</a> </div>
+        </div>
+    </nav>
+    <div class="page-shell" data-astro-cid-gauq755v>
+        <div class="breadcrumb" data-astro-cid-gauq755v> <a href="index.html" data-astro-cid-gauq755v>Home</a><span
+                class="sep" data-astro-cid-gauq755v>/</span><span data-astro-cid-gauq755v>Resources</span> </div>
+        <ul class="side-subnav" data-astro-cid-gauq755v>
+            <li data-astro-cid-gauq755v><a href="research.html" data-astro-cid-gauq755v>Research</a></li>
+            <li data-astro-cid-gauq755v><a href="publications.html" data-astro-cid-gauq755v>Publications</a></li>
+            <li data-astro-cid-gauq755v><a href="resources.html" class="active" data-astro-cid-gauq755v>Resources</a>
+            </li>
+            <li data-astro-cid-gauq755v><a href="grants.html" data-astro-cid-gauq755v>Projects</a></li>
+            <li data-astro-cid-gauq755v><a href="https://marsadlab.com" target="_blank" rel="noopener"
+                    data-astro-cid-gauq755v>MARSAD AI ↗</a></li>
+            <li data-astro-cid-gauq755v><a href="researchers.html" data-astro-cid-gauq755v>Team</a></li>
+            <li data-astro-cid-gauq755v><a href="teaching.html" data-astro-cid-gauq755v>Teaching</a></li>
+            <li data-astro-cid-gauq755v><a href="news.html" data-astro-cid-gauq755v>News</a></li>
+            <li data-astro-cid-gauq755v><a href="work-with-us.html" data-astro-cid-gauq755v>Work With Us</a></li>
+            <li class="section-label" data-astro-cid-gauq755v>Sections</li>
+            <li data-astro-cid-gauq755v><a href="#marsad-led" data-astro-cid-gauq755v>Led by MARSAD <span
+                        class="yr-pill" data-astro-cid-gauq755v>39</span></a></li>
+            <li data-astro-cid-gauq755v><a href="#collaborations" data-astro-cid-gauq755v>Collaborations <span
+                        class="yr-pill" data-astro-cid-gauq755v>20</span></a></li>
+        </ul>
+        <div class="page-main" data-astro-cid-gauq755v>
+            <h1 class="page-title" data-astro-cid-gauq755v>Resources</h1>
+            <p class="page-lede" data-astro-cid-gauq755v>
                 Browse and download the lab's datasets, shared task resources, lexicons, and tools. Most corpora are
-                released for academic use on request. Every entry links to the paper that introduced it when available.
+                released for academic use on request.
             </p>
-<div class="access-note" data-astro-cid-gauq755v=""> <strong data-astro-cid-gauq755v="">Access.</strong> Public
-                resources link directly to their catalog entries. Others are shared on request via the <a data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">resource access form</a>.
+            <div class="access-note" data-astro-cid-gauq755v> <strong data-astro-cid-gauq755v>Access.</strong> Public
+                resources link directly to their catalog entries. Others are shared on request via the <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                    target="_blank" data-astro-cid-gauq755v>resource access form</a>.
             </div>
-<div class="r-controls" data-astro-cid-gauq755v=""> <input data-astro-cid-gauq755v="" id="search" placeholder="Search resources by name, paper, or keyword" type="text"/> <span class="r-count" data-astro-cid-gauq755v=""><span data-astro-cid-gauq755v="" id="num">67</span> of 67
+            <div class="r-controls" data-astro-cid-gauq755v> <input type="text" id="search"
+                    placeholder="Search resources by name, paper, or keyword" data-astro-cid-gauq755v> <span
+                    class="r-count" data-astro-cid-gauq755v><span id="num" data-astro-cid-gauq755v>59</span> of 59
                     resources</span> </div>
-<details class="category" data-astro-cid-gauq755v="" id="corpora" open="">
-<summary data-astro-cid-gauq755v="">Corpora <span class="cat-count" data-astro-cid-gauq755v="">58
-                        entries</span></summary>
-<p class="cat-desc" data-astro-cid-gauq755v="">Annotated Arabic text and multimodal corpora covering social
-                    media, news, dialectal materials, religious text, and specialized domains.</p>
-<ul class="r-list" data-astro-cid-gauq755v="">
-<li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D040</span> ArabWomenEmpower <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Audience Engagement with Arabic Women’s Social
-                                Empowerment and Wellbeing: A Decadal Corpus</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">women</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D041</span> ArabDiscrim <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ArabDiscrim: A Decade-Long Arabic Facebook
-                                Corpus on Racism and Discrimination</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">racism</span><span data-astro-cid-gauq755v="">facebook</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D042</span> JobArabi <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">JobArabi: An Arabic Corpus and Analysis of Job
-                                Announcements from Social Media</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">labor</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D043</span> ClimateChat-300K <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ClimateChat-300K: A Multi-Modal Facebook Dataset
-                                for Understanding Diverse Perspectives in Climate Communication</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">climate</span><span data-astro-cid-gauq755v="">facebook</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D044</span> Longitudinal Trends in Global Climate Change
-                                <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Longitudinal Trends in Global Climate Change
-                                Discourse on Facebook</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">climate</span><span data-astro-cid-gauq755v="">facebook</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D046</span> ArabWomenEngage <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Learning to Engage: Modeling Topic-Sensitive
-                                Reactions in Arabic Women’s Online Discourse</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">women</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D047</span> KZ-SafetyPrompts <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">KZ-SafetyPrompts: A Kazakh Safety Evaluation
-                                Prompt Dataset for Large Language Models</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Kazakh</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">llm-safety</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D048</span> ChiSafe-PAS <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Beyond English and Evasion: A Human-Annotated
-                                Multi-Domain Benchmark for High-Stakes LLM Safety Evaluation in Chinese</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Chinese</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">llm-safety</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D049</span> AlbanianLLMSafety <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">AlbanianLLMSafety: A Safety Evaluation Dataset
-                                for Large Language Models in Albanian</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Albanian</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">llm-safety</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D050</span> StanceNakba <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">StanceNakba Shared Task: Actor and Topic-Aware
-                                Stance Detection in Public Discourse</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">stance</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D051</span> ArabStress <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">From Posts to Pressure: An Arabic Facebook
-                                Dataset about Stress and Mental-Health Monitoring</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">mental-health</span><span data-astro-cid-gauq755v="">facebook</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D033</span> Multilingual Sports Commentary ASR–MT Dataset
-                                (English–Arabic–Croatian captions and translations) <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Creating a Multilingual Dataset in Arabic and
-                                Croatian from Sports Videos Through a Data Processing Pipeline Combining ASR and MT
+            <section class="origin-section" id="marsad-led" data-astro-cid-gauq755v>
+                <div class="origin-header" data-astro-cid-gauq755v>
+                    <h2 class="origin-title" data-astro-cid-gauq755v>Led by MARSAD</h2>
+                    <p class="origin-desc" data-astro-cid-gauq755v>Datasets, lexicons, tools, and guidelines created and
+                        released by the MARSAD Lab team. 39 resources in total.</p>
+                </div>
+                <details class="category" id="led-corpus" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Corpora <span class="cat-count" data-astro-cid-gauq755v>35
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Annotated Arabic text and multimodal corpora covering
+                        social media, news, dialectal materials, religious text, and specialized domains.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D025</span> ArabWomenEmpower <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Audience Engagement with Arabic Women’s
+                                    Social Empowerment and Wellbeing: A Decadal Corpus</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>women</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span><span data-astro-cid-gauq755v="">Croatian</span><span data-astro-cid-gauq755v="">English</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/1-2025 Creating a Multilingual Dataset in Arabic and Croatian from Sports Videos Through a Data Processing Pipeline Combining ASR and MT.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D034</span> Arabic Hate Speech Tweet Corpus <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">An Annotated Corpus of Arabic Tweets for Hate
-                                Speech Analysis</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">hate-speech</span><span data-astro-cid-gauq755v="">twitter</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2025 An Annotated Corpus of Arabic Tweets for Hate Speech Analysis.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D035</span> EmoHopeSpeech (English &amp; Arabic hope /
-                                emotion dataset) <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">EmoHopeSpeech: An Annotated Dataset of Emotions
-                                and Hope Speech in English and Arabic</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span><span data-astro-cid-gauq755v="">English</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">hope-speech</span><span data-astro-cid-gauq755v="">emotion</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2025 EmoHopeSpeech: An Annotated Dataset of Emotions and Hope Speech in English and Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D036</span> Hijab YouTube comments dataset <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Analyzing Digital Polarization on Hijab: A
-                                Dataset of Annotated YouTube Comments</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">youtube</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/6-2025 Analyzing Digital Polarization on Hijab: A Dataset of Annotated YouTube Comments.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D037</span> CheckThat! 2025 benchmark datasets (Tasks 1–4
-                                across 20+ languages) <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Overview of the CLEF-2025 CheckThat! Lab Task 1
-                                on Subjectivity in News Articles</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">fact-checking</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/9-2025 Overview of the CLEF-2025 CheckThat! Lab Task 1 on Subjectivity in News Articles.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D038</span> ImageEval 2025 Arabic image captioning dataset
-                                <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ImageEval 2025: The First Arabic Image
-                                Captioning Shared Task</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/11-2025 ImageEval 2025: The First Arabic Image Captioning Shared Task.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D039</span> MAHED multimodal hope &amp; hate corpus <span class="r-year" data-astro-cid-gauq755v="">2025</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">MAHED Shared Task: Multimodal Detection of Hope
-                                and Hate Emotions in Arabic Content</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">hate-speech</span><span data-astro-cid-gauq755v="">hope-speech</span><span data-astro-cid-gauq755v="">emotion</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/11-2025 MAHED Shared Task: Multimodal Detection of Hope and Hate Emotions in Arabic Content.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D022</span> Multi-dimensional Facebook comments corpus on
-                                Tunisia’s July 25 measures (stance, sentiment, emotion) <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Multi-Dimensional Insights: Annotated Dataset of
-                                Stance, Sentiment, and Emotion in Facebook Comments on Tunisia's July 25 Measures
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D026</span> ArabDiscrim <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ArabDiscrim: A Decade-Long Arabic Facebook
+                                    Corpus on Racism and Discrimination</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>racism</span><span
+                                        data-astro-cid-gauq755v>facebook</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">stance</span><span data-astro-cid-gauq755v="">emotion</span><span data-astro-cid-gauq755v="">facebook</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 Multi-Dimensional Insights: Annotated Dataset of Stance, Sentiment, and Emotion in Facebook Comments on Tunisia's July 25 Measures.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D023</span> MARASTA: Multi-dialectal Arabic Cross-domain
-                                Stance Corpus <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">MARASTA: A Multi-dialectal Arabic Cross-domain
-                                Stance Corpus</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">stance</span><span data-astro-cid-gauq755v="">dialectal</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 MARASTA: A Multi-dialectal Arabic Cross-domain Stance Corpus.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D024</span> Munazarat 1.0: Arabic competitive debates corpus
-                                <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Munazarat 1.0: A Corpus of Arabic Competitive
-                                Debates</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">argumentation</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 Munazarat 1.0: A Corpus of Arabic Competitive Debates.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D025</span> So Hateful! <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">So Hateful! Building a Multi-Label Hate Speech
-                                Annotated Arabic Dataset</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">hate-speech</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 So Hateful! Building a Multi-Label Hate Speech Annotated Arabic Dataset.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D026</span> QCAW 1.0: Qatari Corpus of Argumentative Writing
-                                <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">QCAW 1.0: Building a Qatari Corpus of Student
-                                Argumentative Writing</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">argumentation</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 QCAW 1.0: Building a Qatari Corpus of Student Argumentative Writing.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D027</span> ADHAR: multi-dialectal Arabic hate-speech corpus
-                                <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Hate speech detection with ADHAR: a
-                                multi-dialectal hate speech corpus in Arabic</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">hate-speech</span><span data-astro-cid-gauq755v="">dialectal</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 Hate speech detection with ADHAR: a multi-dialectal hate speech corpus in Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D028</span> Sheikh Jarrah digital framing dataset
-                                (social/media content on evictions) <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Analyzing Conflict Through Data: A Dataset on
-                                the Digital Framing of Sheikh Jarrah Evictions</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2024 Analyzing Conflict Through Data: A Dataset on the Digital Framing of Sheikh Jarrah Evictions.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D029</span> ThatiAR <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ThatiAR: Subjectivity Detection in Arabic News
-                                Sentences</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/6-2024 ThatiAR: Subjectivity Detection in Arabic News Sentences.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D030</span> FIGNEWS news media narratives corpus
-                                (multilingual news articles on the Gaza–Israel war annotated for bias, propaganda and
-                                narrative frames) <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">The FIGNEWS Shared Task on News Media Narratives
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D027</span> JobArabi <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>JobArabi: An Arabic Corpus and Analysis of
+                                    Job Announcements from Social Media</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>labor</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/7-2024 The FIGNEWS Shared Task on News Media Narratives.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D031</span> Large-scale Arabic YouTube Trauma Corpus
-                                (comments; sentiment + emotions) <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Sentiment Analysis and Emotion Annotation of a
-                                Large-Scale Arabic YouTube Trauma Corpus</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">mental-health</span><span data-astro-cid-gauq755v="">emotion</span><span data-astro-cid-gauq755v="">youtube</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/8-2024 Sentiment Analysis and Emotion Annotation of a Large-Scale Arabic YouTube Trauma Corpus.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D032</span> CheckThat! 2024 Task 2 subjectivity dataset
-                                (news articles) <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Overview of the CLEF-2024 CheckThat! Lab Task 2
-                                on Subjectivity in News Articles</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">fact-checking</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/9-2024 Overview of the CLEF-2024 CheckThat! Lab Task 2 on Subjectivity in News Articles.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D076</span> Cheeren paper on Depression and Trauma <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Discourse of Depression and Trauma on Arabic
-                                Social Media: A Matched-Pairs Approach to Gendered Narratives of Mental Health</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">mental-health</span><span data-astro-cid-gauq755v="">women</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/Accpeted in ICA76th" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D019</span> CheckThat! 2023 multilingual news &amp; claims
-                                datasets (checkworthiness, subjectivity, political bias, factuality, authority, source
-                                authority) <span class="r-year" data-astro-cid-gauq755v="">2023</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Overview of the CLEF–2023 CheckThat! Lab on
-                                Checkworthiness, Subjectivity, Political Bias, Factuality, and Authority of News
-                                Articles and Their Source</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">fact-checking</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/9-2023 Overview of the CLEF–2023 CheckThat! Lab on Checkworthiness, Subjectivity, Political Bias, Factuality, and Authority of News Articles and Their Source.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D020</span> Vaccine-related Arabic Twitter corpus (~2,100
-                                tweets annotated for vaccine attitudes / factors) <span class="r-year" data-astro-cid-gauq755v="">2023</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Potentials of ChatGPT for Annotating Vaccine
-                                Related Tweets</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">twitter</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/11-2023 Potentials of ChatGPT for Annotating Vaccine Related Tweets.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D021</span> ArAIEval persuasion techniques &amp;
-                                disinformation datasets (Arabic tweets/news, multi-label persuasion and disinformation
-                                labels) <span class="r-year" data-astro-cid-gauq755v="">2023</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ArAIEval Shared Task: Persuasion Techniques and
-                                Disinformation Detection in Arabic Text</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/12-2023 ArAIEval Shared Task: Persuasion Techniques and Disinformation Detection in Arabic Text.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D017</span> DAICT irony corpus <span class="r-year" data-astro-cid-gauq755v="">2020</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">DAICT: A Dialectal Arabic Irony Corpus Extracted
-                                from Twitter</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">irony</span><span data-astro-cid-gauq755v="">twitter</span><span data-astro-cid-gauq755v="">dialectal</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2020 DAICT A Dialectal Arabic Irony Corpus Extracted from Twitter.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D018</span> Corpus of Qatari Arabic expressions <span class="r-year" data-astro-cid-gauq755v="">2020</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Building a Corpus of Qatari Arabic Expressions
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D028</span> ClimateChat-300K <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ClimateChat-300K: A Multi-Modal Facebook
+                                    Dataset for Understanding Diverse Perspectives in Climate Communication</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>climate</span><span
+                                        data-astro-cid-gauq755v>facebook</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2020 Building a Corpus of Qatari Arabic Expressions.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D014</span> ARAP-Tweet 2.0 (Text) <span class="r-year" data-astro-cid-gauq755v="">2019</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">A Fine-Grained Annotated Multi-Dialectal Arabic
-                                Corpus</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">dialectal</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/9-2019-A Fine-Grained Annotated Multi-Dialectal Arabic Corpus.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D015</span> Qatar Twitter Credibility Corpus (Text) <span class="r-year" data-astro-cid-gauq755v="">2019</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">On the Author Profiling and Deception Detection
-                                in Arabic shared task at FIRE</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/12-2019-On the Author Profiling and Deception Detection in Arabic shared task at FIRE.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D016</span> Qatar News Credibility Corpus (Text) <span class="r-year" data-astro-cid-gauq755v="">2019</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Overview of the Track on Author Profiling and
-                                Deception Detection in Arabic?</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/12-2019-Overview of the Track on Author Profiling and Deception Detection in Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D011</span> CheckThat! 2018 (CT-CWC-18) <span class="r-year" data-astro-cid-gauq755v="">2018</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">1- Overview of the CLEF-2018 CheckThat! Lab on
-                                Automatic Identification and Verification of Political Claims. Task 1: Check-Worthiness
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D029</span> Longitudinal Trends in Global Climate Change
+                                    <span class="r-year" data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Longitudinal Trends in Global Climate Change
+                                    Discourse on Facebook</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>climate</span><span
+                                        data-astro-cid-gauq755v>facebook</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">fact-checking</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/8-2018-Overview of the CLEF-2018 CheckThat! Lab on Automatic Identification and Verification of Political Claims. Task 1- Check-Worthiness ?.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D012</span> CheckThat! 2018 ( CT-FCC-18) <span class="r-year" data-astro-cid-gauq755v="">2018</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Overview of the CLEF-2018 CheckThat! Lab on
-                                Automatic Identification and Verification of Political Claims. Task 2: Factuality?</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">fact-checking</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/8-2018-Overview of the CLEF-2018 CheckThat! Lab on Automatic Identification and Verification of Political Claims. Task 2- Factuality.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D005</span> QALB L1: Native Arabic Error Correction (Text)
-                                <span class="r-year" data-astro-cid-gauq755v="">2015</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">SAHSOH@QALB-2015 Shared Task: A Rule-Based
-                                Correction Method of Common Arabic Native and Non-Native Speakers’ Errors</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">error-correction</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/7-2015-SAHSOH@QALB-2015 Shared Task- A Rule-Based Correction Method of Common Arabic Native and Non-Native Speakers’ Errors .pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D006</span> QALB L2: Learner Arabic Error Correction (Text)
-                                <span class="r-year" data-astro-cid-gauq755v="">2015</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">The Second QALB Shared Task on Automatic Text
-                                Correction for Arabic</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">error-correction</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/7-2015-The Second QALB Shared Task on Automatic Text Correction for Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D004</span> QALB: Qatar Arabic Language Bank (Text) <span class="r-year" data-astro-cid-gauq755v="">2014</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">The First QALB Shared Task on Automatic Text
-                                Correction for Arabic</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">error-correction</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/10-2014-The First QALB Shared Task on Automatic Text Correction for Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D003</span> QAPB: Quranic Arabic PropBank (Text) <span class="r-year" data-astro-cid-gauq755v="">2012</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">A Pilot PropBank Annotation for Quranic Arabic
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D030</span> Arabic Political Memes Dataset <span
+                                        class="r-year" data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Constructing Gen Z as a Political
+                                    Generation: A Yearlong Multi-Platform Analysis of Digital Political Framing Across
+                                    Global Contexts</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">islamic</span><span data-astro-cid-gauq755v="">syntax-semantics</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/6-2012-A Pilot PropBank Annotation for Quranic Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D002</span> Arabic PropBank (APB) (Text) <span class="r-year" data-astro-cid-gauq755v="">2008</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">A Pilot Arabic Propbank</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">syntax-semantics</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2008-A Pilot Arabic Propbank.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li></ul>
-</details>
-<details class="category" data-astro-cid-gauq755v="" id="lexicons" open="">
-<summary data-astro-cid-gauq755v="">Lexicons <span class="cat-count" data-astro-cid-gauq755v="">3
-                        entries</span></summary>
-<p class="cat-desc" data-astro-cid-gauq755v="">Specialized word lists covering morphology, MSA vocabulary,
-                    dialect terms, and social media categories.</p>
-<ul class="r-list" data-astro-cid-gauq755v="">
-<li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D009</span> MADAR Arabic Dialect Corpus and Lexicon (Text)
-                                <span class="r-year" data-astro-cid-gauq755v="">2018</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">The MADAR Arabic Dialect Corpus and Lexicon
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D031</span> ArabWomenEngage <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Learning to Engage: Modeling Topic-Sensitive
+                                    Reactions in Arabic Women’s Online Discourse</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>women</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> <span data-astro-cid-gauq755v="">dialectal</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2018-The MADAR Arabic Dialect Corpus and Lexicon.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D010</span> ARLEX: Lexical Inventory for Modern Standard
-                                Arabic (Lexicon) <span class="r-year" data-astro-cid-gauq755v="">2018</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">ARLEX- A Large Scale Comprehensive Lexical
-                                Inventory for Modern Standard Arabic</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2018-ARLEX- A Large Scale Comprehensive Lexical Inventory for Modern Standard Arabic.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li></ul>
-</details>
-<details class="category" data-astro-cid-gauq755v="" id="tools" open="">
-<summary data-astro-cid-gauq755v="">Tools <span class="cat-count" data-astro-cid-gauq755v="">3 entries</span>
-</summary>
-<p class="cat-desc" data-astro-cid-gauq755v="">Software, annotation systems, and analytical platforms
-                    developed by the lab.</p>
-<ul class="r-list" data-astro-cid-gauq755v="">
-<li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D045</span> Arabic Political Memes Dataset <span class="r-year" data-astro-cid-gauq755v="">2026</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Constructing Gen Z as a Political Generation: A
-                                Yearlong Multi-Platform Analysis of Digital Political Framing Across Global Contexts
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D032</span> KZ-SafetyPrompts <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>KZ-SafetyPrompts: A Kazakh Safety Evaluation
+                                    Prompt Dataset for Large Language Models</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Kazakh</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>llm-safety</span> </div>
                             </div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">TOOL</span> MARSAD AI Platform <span class="r-year" data-astro-cid-gauq755v="">2024</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Live Arabic social media observatory platform
-                                with topic modeling, sentiment, toxicity, network, and geographic analysis. QRDI-funded
-                                under the Digital Citizenship cluster.</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">Public</span> <span data-astro-cid-gauq755v="">web-platform</span><span data-astro-cid-gauq755v="">qrdi</span><span data-astro-cid-gauq755v="">social-media</span>
-</div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-paper" data-astro-cid-gauq755v="" href="https://marsadlab.com" target="_blank">Visit ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D001</span> ARCADE II Evaluation Package (Parallel Text
-                                Alignment) (Text) <span class="r-year" data-astro-cid-gauq755v="">2006</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Evaluation of multilingual text alignment
-                                systems: the ARCADE II project</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Multilingual</span> <span data-astro-cid-gauq755v="">On
-                                    request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2006-Evaluation of multilingual text alignment systems- the ARCADE II project.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li></ul>
-</details>
-<details class="category" data-astro-cid-gauq755v="" id="guidelines" open="">
-<summary data-astro-cid-gauq755v="">Guidelines <span class="cat-count" data-astro-cid-gauq755v="">3
-                        entries</span></summary>
-<p class="cat-desc" data-astro-cid-gauq755v="">Published annotation protocols and methodological
-                    frameworks.</p>
-<ul class="r-list" data-astro-cid-gauq755v="">
-<li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D013</span> ARAP-Tweet (Arabic Author Profiling) (Text)
-                                <span class="r-year" data-astro-cid-gauq755v="">2018</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Guidelines and Annotation Framework for Arabic
-                                Author Profiling</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/8-2018-Guidelines and Annotation Framework for Arabic Author Profiling .pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D007</span> Arabic Punctuated <span class="r-year" data-astro-cid-gauq755v="">2016</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Toward an Arabic Punctuated Corpus: Annotation
-                                Guidelines and Evaluation</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2016-Toward an Arabic Punctuated Corpus- Annotation Guidelines and Evaluation.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li><li class="r-item" data-astro-cid-gauq755v="">
-<div data-astro-cid-gauq755v="">
-<div class="r-name" data-astro-cid-gauq755v=""> <span class="r-id" data-astro-cid-gauq755v="">D008</span> Arabic Machine Translation Post-Edited Corpus
-                                <span class="r-year" data-astro-cid-gauq755v="">2016</span> </div>
-<div class="r-desc" data-astro-cid-gauq755v="">Building an Arabic Machine Translation
-                                Post-Edited Corpus: Guidelines and Annotation</div>
-<div class="r-meta" data-astro-cid-gauq755v=""> <span data-astro-cid-gauq755v="">Arabic</span>
-<span data-astro-cid-gauq755v="">On request</span> </div>
-</div>
-<div class="r-action" data-astro-cid-gauq755v=""> <a class="r-request" data-astro-cid-gauq755v="" href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform" target="_blank">Request</a> <a class="r-paper" data-astro-cid-gauq755v="" href="/docs/5-2016-Building an Arabic Machine Translation Post-Edited Corpus Guidelines and Annotation.pdf" target="_blank">Paper PDF ↗</a> </div>
-</li></ul>
-</details>
-</div>
-</div>
-<script type="module">const s = document.getElementById("search"), c = document.querySelectorAll(".r-item"), i = document.getElementById("num"); s.addEventListener("input", () => { const e = s.value.toLowerCase().trim(); let t = 0; c.forEach(n => { const o = !e || (n.textContent?.toLowerCase() ?? "").includes(e); n.style.display = o ? "" : "none", o && t++ }), i.textContent = String(t) });</script>
-<footer data-astro-cid-37fxchfa="">
-<div class="footer-inner" data-astro-cid-37fxchfa="">
-<div data-astro-cid-37fxchfa="">© 2026 MARSAD Lab · Northwestern University in Qatar</div>
-<div data-astro-cid-37fxchfa="">See <a data-astro-cid-37fxchfa="" href="grants.html">Projects</a> for full funding
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D033</span> ChiSafe-PAS <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Beyond English and Evasion: A
+                                    Human-Annotated Multi-Domain Benchmark for High-Stakes LLM Safety Evaluation in
+                                    Chinese</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span
+                                        data-astro-cid-gauq755v>Chinese</span> <span data-astro-cid-gauq755v>On
+                                        request</span> <span data-astro-cid-gauq755v>llm-safety</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D034</span> AlbanianLLMSafety <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>AlbanianLLMSafety: A Safety Evaluation
+                                    Dataset for Large Language Models in Albanian</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span
+                                        data-astro-cid-gauq755v>Albanian</span> <span data-astro-cid-gauq755v>On
+                                        request</span> <span data-astro-cid-gauq755v>llm-safety</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D035</span> StanceNakba <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>StanceNakba Shared Task: Actor and
+                                    Topic-Aware Stance Detection in Public Discourse</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>stance</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D036</span> ArabStress <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>From Posts to Pressure: An Arabic Facebook
+                                    Dataset about Stress and Mental-Health Monitoring</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>mental-health</span><span
+                                        data-astro-cid-gauq755v>facebook</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D020</span> Multilingual Sports Commentary ASR–MT
+                                    Dataset (English–Arabic–Croatian captions and translations) <span class="r-year"
+                                        data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Creating a Multilingual Dataset in Arabic
+                                    and Croatian from Sports Videos Through a Data Processing Pipeline Combining ASR and
+                                    MT</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span
+                                        data-astro-cid-gauq755v>Arabic</span><span
+                                        data-astro-cid-gauq755v>Croatian</span><span
+                                        data-astro-cid-gauq755v>English</span> <span data-astro-cid-gauq755v>On
+                                        request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D021</span> Arabic Hate Speech Tweet Corpus <span
+                                        class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>An Annotated Corpus of Arabic Tweets for
+                                    Hate Speech Analysis</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>hate-speech</span><span
+                                        data-astro-cid-gauq755v>twitter</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D022</span> EmoHopeSpeech (English &amp; Arabic hope /
+                                    emotion dataset) <span class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>EmoHopeSpeech: An Annotated Dataset of
+                                    Emotions and Hope Speech in English and Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span
+                                        data-astro-cid-gauq755v>Arabic</span><span
+                                        data-astro-cid-gauq755v>English</span> <span data-astro-cid-gauq755v>On
+                                        request</span> <span data-astro-cid-gauq755v>hope-speech</span><span
+                                        data-astro-cid-gauq755v>emotion</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D023</span> Hijab YouTube comments dataset <span
+                                        class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Analyzing Digital Polarization on Hijab: A
+                                    Dataset of Annotated YouTube Comments</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>youtube</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D024</span> MAHED multimodal hope &amp; hate corpus
+                                    <span class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>MAHED Shared Task: Multimodal Detection of
+                                    Hope and Hate Emotions in Arabic Content</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>hate-speech</span><span
+                                        data-astro-cid-gauq755v>hope-speech</span><span
+                                        data-astro-cid-gauq755v>emotion</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D010</span> Multi-dimensional Facebook comments corpus
+                                    on Tunisia’s July 25 measures (stance, sentiment, emotion) <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Multi-Dimensional Insights: Annotated
+                                    Dataset of Stance, Sentiment, and Emotion in Facebook Comments on Tunisia&#39;s July
+                                    25 Measures</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>stance</span><span
+                                        data-astro-cid-gauq755v>emotion</span><span
+                                        data-astro-cid-gauq755v>facebook</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D011</span> MARASTA: Multi-dialectal Arabic Cross-domain
+                                    Stance Corpus <span class="r-year" data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>MARASTA: A Multi-dialectal Arabic
+                                    Cross-domain Stance Corpus</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>stance</span><span
+                                        data-astro-cid-gauq755v>dialectal</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D012</span> Munazarat 1.0: Arabic competitive debates
+                                    corpus <span class="r-year" data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Munazarat 1.0: A Corpus of Arabic
+                                    Competitive Debates</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>argumentation</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D013</span> So Hateful! <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>So Hateful! Building a Multi-Label Hate
+                                    Speech Annotated Arabic Dataset</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>hate-speech</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D014</span> QCAW 1.0: Qatari Corpus of Argumentative
+                                    Writing <span class="r-year" data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>QCAW 1.0: Building a Qatari Corpus of
+                                    Student Argumentative Writing</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>argumentation</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D015</span> ADHAR: multi-dialectal Arabic hate-speech
+                                    corpus <span class="r-year" data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Hate speech detection with ADHAR: a
+                                    multi-dialectal hate speech corpus in Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>hate-speech</span><span
+                                        data-astro-cid-gauq755v>dialectal</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D016</span> Sheikh Jarrah digital framing dataset
+                                    (social/media content on evictions) <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Analyzing Conflict Through Data: A Dataset
+                                    on the Digital Framing of Sheikh Jarrah Evictions</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D017</span> ThatiAR <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ThatiAR: Subjectivity Detection in Arabic
+                                    News Sentences</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D018</span> FIGNEWS news media narratives corpus
+                                    (multilingual news articles on the Gaza–Israel war annotated for bias, propaganda
+                                    and narrative frames) <span class="r-year" data-astro-cid-gauq755v>2024</span>
+                                </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>The FIGNEWS Shared Task on News Media
+                                    Narratives</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D019</span> Large-scale Arabic YouTube Trauma Corpus
+                                    (comments; sentiment + emotions) <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Sentiment Analysis and Emotion Annotation of
+                                    a Large-Scale Arabic YouTube Trauma Corpus</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>mental-health</span><span
+                                        data-astro-cid-gauq755v>emotion</span><span
+                                        data-astro-cid-gauq755v>youtube</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D008</span> Vaccine-related Arabic Twitter corpus
+                                    (~2,100 tweets annotated for vaccine attitudes / factors) <span class="r-year"
+                                        data-astro-cid-gauq755v>2023</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Potentials of ChatGPT for Annotating Vaccine
+                                    Related Tweets</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>twitter</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D009</span> ArAIEval persuasion techniques &amp;
+                                    disinformation datasets (Arabic tweets/news, multi-label persuasion and
+                                    disinformation labels) <span class="r-year" data-astro-cid-gauq755v>2023</span>
+                                </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ArAIEval Shared Task: Persuasion Techniques
+                                    and Disinformation Detection in Arabic Text</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D007</span> WANLP 2022 Arabic Propaganda Detection
+                                    Dataset <span class="r-year" data-astro-cid-gauq755v>2022</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the WANLP 2022 Shared Task on
+                                    Propaganda Detection in Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>propaganda</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D006</span> ArSarcasm-v2 <span class="r-year"
+                                        data-astro-cid-gauq755v>2021</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ArSarcasm-v2: An Updated Corpus for Sarcasm
+                                    Detection in Arabic Tweets</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>twitter</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D004</span> DAICT irony corpus <span class="r-year"
+                                        data-astro-cid-gauq755v>2020</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>DAICT: A Dialectal Arabic Irony Corpus
+                                    Extracted from Twitter</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>irony</span><span
+                                        data-astro-cid-gauq755v>twitter</span><span
+                                        data-astro-cid-gauq755v>dialectal</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D005</span> Corpus of Qatari Arabic expressions <span
+                                        class="r-year" data-astro-cid-gauq755v>2020</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Building a Corpus of Qatari Arabic
+                                    Expressions</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D003</span> ARAP-Tweet 2.0 (Text) <span class="r-year"
+                                        data-astro-cid-gauq755v>2019</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>A Fine-Grained Annotated Multi-Dialectal
+                                    Arabic Corpus</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>dialectal</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D001</span> QAPB: Quranic Arabic PropBank (Text) <span
+                                        class="r-year" data-astro-cid-gauq755v>2012</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>A Pilot PropBank Annotation for Quranic
+                                    Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>islamic</span><span
+                                        data-astro-cid-gauq755v>syntax-semantics</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+                <details class="category" id="led-lexicon" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Lexicons <span class="cat-count" data-astro-cid-gauq755v>1
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Specialized word lists covering morphology, MSA
+                        vocabulary, dialect terms, and social media categories.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>D002</span> ARLEX: Lexical Inventory for Modern Standard
+                                    Arabic (Lexicon) <span class="r-year" data-astro-cid-gauq755v>2018</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ARLEX- A Large Scale Comprehensive Lexical
+                                    Inventory for Modern Standard Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+                <details class="category" id="led-tool" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Tools <span class="cat-count" data-astro-cid-gauq755v>1
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Software, annotation systems, and analytical platforms.
+                    </p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>T001</span> MARSAD AI Platform <span class="r-year"
+                                        data-astro-cid-gauq755v>2026</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Live Arabic social media observatory
+                                    platform with topic modeling, sentiment, toxicity, network, and geographic analysis.
+                                    QRDI-funded under the Digital Citizenship cluster.</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>Public</span> <span
+                                        data-astro-cid-gauq755v>web-platform</span><span
+                                        data-astro-cid-gauq755v>qrdi</span><span
+                                        data-astro-cid-gauq755v>social-media</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a href="https://marsadlab.com"
+                                    target="_blank" class="r-paper" data-astro-cid-gauq755v>Visit ↗</a> </div>
+                        </li>
+                    </ul>
+                </details>
+                <details class="category" id="led-guideline" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Guidelines <span class="cat-count" data-astro-cid-gauq755v>2
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Published annotation protocols and methodological
+                        frameworks.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>G003</span> ARAP-Tweet (Arabic Author Profiling) (Text)
+                                    <span class="r-year" data-astro-cid-gauq755v>2018</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Guidelines and Annotation Framework for
+                                    Arabic Author Profiling</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>G002</span> Arabic Punctuated <span class="r-year"
+                                        data-astro-cid-gauq755v>2016</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Toward an Arabic Punctuated Corpus:
+                                    Annotation Guidelines and Evaluation</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+            </section>
+            <section class="origin-section" id="collaborations" data-astro-cid-gauq755v>
+                <div class="origin-header" data-astro-cid-gauq755v>
+                    <h2 class="origin-title" data-astro-cid-gauq755v>Collaborations</h2>
+                    <p class="origin-desc" data-astro-cid-gauq755v>Resources led by external partners where MARSAD
+                        contributed as collaborator or co-author. 20 resources in total.</p>
+                </div>
+                <details class="category" id="collab-corpus" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Corpora <span class="cat-count" data-astro-cid-gauq755v>18
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Annotated Arabic text and multimodal corpora covering
+                        social media, news, dialectal materials, religious text, and specialized domains.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S017</span> CheckThat! 2025 benchmark datasets (Tasks
+                                    1–4 across 20+ languages) <span class="r-year" data-astro-cid-gauq755v>2025</span>
+                                </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF-2025 CheckThat! Lab
+                                    Task 1 on Subjectivity in News Articles</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S018</span> ImageEval 2025 Arabic image captioning
+                                    dataset <span class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>ImageEval 2025: The First Arabic Image
+                                    Captioning Shared Task</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S019</span> QIAS2025 Task 1: Islamic Inheritance
+                                    Reasoning <span class="r-year" data-astro-cid-gauq755v>2025</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>QIAS2025 Shared Task on Islamic Inheritance
+                                    Reasoning and Knowledge Assessment</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>islamic</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S015</span> CLEF-2024 CheckThat! Lab Task 1:
+                                    Check-Worthiness Estimation (Multigenre) <span class="r-year"
+                                        data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v></div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S016</span> CheckThat! 2024 Task 2 subjectivity dataset
+                                    (news articles) <span class="r-year" data-astro-cid-gauq755v>2024</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF-2024 CheckThat! Lab
+                                    Task 2 on Subjectivity in News Articles</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S014</span> CheckThat! 2023 multilingual news &amp;
+                                    claims datasets (checkworthiness, subjectivity, political bias, factuality,
+                                    authority, source authority) <span class="r-year"
+                                        data-astro-cid-gauq755v>2023</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF–2023 CheckThat! Lab on
+                                    Checkworthiness, Subjectivity, Political Bias, Factuality, and Authority of News
+                                    Articles and Their Source</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S012</span> CT-CWT-22: Relevant Claims in Tweets <span
+                                        class="r-year" data-astro-cid-gauq755v>2022</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF-2022 CheckThat! Lab
+                                    Task 1 on Identifying Relevant Claims in Tweets</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span><span
+                                        data-astro-cid-gauq755v>twitter</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S013</span> CT-VCR-22: Previously Fact-Checked Claims
+                                    <span class="r-year" data-astro-cid-gauq755v>2022</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF-2022 CheckThat! Lab
+                                    Task 2 on Detecting Previously Fact-Checked Claims</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S010</span> COVID-19 Disinformation Dataset <span
+                                        class="r-year" data-astro-cid-gauq755v>2021</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Fighting the COVID-19 Infodemic: Modeling
+                                    the Perspective of Journalists, Fact-Checkers, Social Media Platforms, Policy
+                                    Makers, and Society</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S011</span> NLP4IF-2021 Infodemic Shared-Task Dataset
+                                    <span class="r-year" data-astro-cid-gauq755v>2021</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Findings of the NLP4IF-2021 Shared Tasks on
+                                    Fighting the COVID-19 Infodemic and Censorship Detection</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S008</span> Qatar Twitter Credibility Corpus (Text)
+                                    <span class="r-year" data-astro-cid-gauq755v>2019</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>On the Author Profiling and Deception
+                                    Detection in Arabic shared task at FIRE</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S009</span> Qatar News Credibility Corpus (Text) <span
+                                        class="r-year" data-astro-cid-gauq755v>2019</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the Track on Author Profiling
+                                    and Deception Detection in Arabic?</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S006</span> CheckThat! 2018 (CT-CWC-18) <span
+                                        class="r-year" data-astro-cid-gauq755v>2018</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>1- Overview of the CLEF-2018 CheckThat! Lab
+                                    on Automatic Identification and Verification of Political Claims. Task 1:
+                                    Check-Worthiness</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S007</span> CheckThat! 2018 ( CT-FCC-18) <span
+                                        class="r-year" data-astro-cid-gauq755v>2018</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Overview of the CLEF-2018 CheckThat! Lab on
+                                    Automatic Identification and Verification of Political Claims. Task 2: Factuality?
+                                </div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>fact-checking</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S004</span> QALB L2: Learner Arabic Error Correction
+                                    (Text) <span class="r-year" data-astro-cid-gauq755v>2015</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>The Second QALB Shared Task on Automatic
+                                    Text Correction for Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>error-correction</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S003</span> QALB: Qatar Arabic Language Bank (Text)
+                                    <span class="r-year" data-astro-cid-gauq755v>2014</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>The First QALB Shared Task on Automatic Text
+                                    Correction for Arabic</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>error-correction</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S002</span> Arabic PropBank (APB) (Text) <span
+                                        class="r-year" data-astro-cid-gauq755v>2008</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>A Pilot Arabic Propbank</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>syntax-semantics</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S001</span> ARCADE II Evaluation Package (Parallel Text
+                                    Alignment) (Text) <span class="r-year" data-astro-cid-gauq755v>2006</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Evaluation of multilingual text alignment
+                                    systems: the ARCADE II project</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span
+                                        data-astro-cid-gauq755v>Multilingual</span> <span data-astro-cid-gauq755v>On
+                                        request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+                <details class="category" id="collab-lexicon" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Lexicons <span class="cat-count" data-astro-cid-gauq755v>1
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Specialized word lists covering morphology, MSA
+                        vocabulary, dialect terms, and social media categories.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>S005</span> MADAR Arabic Dialect Corpus and Lexicon
+                                    (Text) <span class="r-year" data-astro-cid-gauq755v>2018</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>The MADAR Arabic Dialect Corpus and Lexicon
+                                </div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> <span
+                                        data-astro-cid-gauq755v>dialectal</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+                <details class="category" id="collab-guideline" open data-astro-cid-gauq755v>
+                    <summary data-astro-cid-gauq755v>Guidelines <span class="cat-count" data-astro-cid-gauq755v>1
+                            entries</span></summary>
+                    <p class="cat-desc" data-astro-cid-gauq755v>Published annotation protocols and methodological
+                        frameworks.</p>
+                    <ul class="r-list" data-astro-cid-gauq755v>
+                        <li class="r-item" data-astro-cid-gauq755v>
+                            <div data-astro-cid-gauq755v>
+                                <div class="r-name" data-astro-cid-gauq755v> <span class="r-id"
+                                        data-astro-cid-gauq755v>G001</span> Arabic Machine Translation Post-Edited
+                                    Corpus <span class="r-year" data-astro-cid-gauq755v>2016</span> </div>
+                                <div class="r-desc" data-astro-cid-gauq755v>Building an Arabic Machine Translation
+                                    Post-Edited Corpus: Guidelines and Annotation</div>
+                                <div class="r-meta" data-astro-cid-gauq755v> <span data-astro-cid-gauq755v>Arabic</span>
+                                    <span data-astro-cid-gauq755v>On request</span> </div>
+                            </div>
+                            <div class="r-action" data-astro-cid-gauq755v> <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfnADEgFnSsIz9pDVy4TwpKIGAQRZvbQxU46B8q-rvTpjKaCA/viewform"
+                                    target="_blank" class="r-request" data-astro-cid-gauq755v>Request</a> </div>
+                        </li>
+                    </ul>
+                </details>
+            </section>
+        </div>
+    </div>
+    <script
+        type="module">const s = document.getElementById("search"), c = document.querySelectorAll(".r-item"), i = document.getElementById("num"); s.addEventListener("input", () => { const e = s.value.toLowerCase().trim(); let t = 0; c.forEach(n => { const o = !e || (n.textContent?.toLowerCase() ?? "").includes(e); n.style.display = o ? "" : "none", o && t++ }), i.textContent = String(t) });</script>
+    <footer data-astro-cid-37fxchfa>
+        <div class="footer-inner" data-astro-cid-37fxchfa>
+            <div data-astro-cid-37fxchfa>© 2026 MARSAD Lab · Northwestern University in Qatar</div>
+            <div data-astro-cid-37fxchfa>See <a href="grants.html" data-astro-cid-37fxchfa>Projects</a> for full funding
                 record</div>
-</div>
-</footer>
+        </div>
+    </footer>
 </body>
+
 </html>
