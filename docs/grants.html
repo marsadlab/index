@@ -383,17 +383,37 @@
 
         .grant[data-astro-cid-xd4qnnss] {
             padding: 20px 0;
-            border-bottom: 1px solid var(--line)
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start
         }
 
         .grant[data-astro-cid-xd4qnnss]:first-of-type {
             border-top: 1px solid var(--line)
         }
 
+        .grant-thumb[data-astro-cid-xd4qnnss] {
+            flex: 0 0 160px;
+            width: 160px;
+            height: 110px;
+            border-radius: 6px;
+            background-color: var(--bg-2);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat
+        }
+
+        .grant-body[data-astro-cid-xd4qnnss] {
+            flex: 1 1 auto;
+            min-width: 0
+        }
+
         .grant-title[data-astro-cid-xd4qnnss] {
             font-size: 1rem;
             font-weight: 500;
             margin-bottom: 6px;
+            margin-top: 8px;
             line-height: 1.35
         }
 
@@ -470,6 +490,19 @@
                 grid-template-columns: repeat(2, 1fr)
             }
         }
+
+        @media(max-width:700px) {
+            .grant[data-astro-cid-xd4qnnss] {
+                flex-direction: column;
+                gap: 12px
+            }
+
+            .grant-thumb[data-astro-cid-xd4qnnss] {
+                width: 100%;
+                flex: 0 0 auto;
+                height: 140px
+            }
+        }
     </style>
 </head>
 
@@ -486,7 +519,7 @@
                 <li data-astro-cid-37fxchfa><a href="resources.html" class data-astro-cid-37fxchfa>Resources</a></li>
                 <li data-astro-cid-37fxchfa><a href="grants.html" class="active" data-astro-cid-37fxchfa>Projects</a>
                 </li>
-                <li data-astro-cid-37fxchfa><a href=" https://app.marsadlab.com" target="_blank" rel="noopener"
+                <li data-astro-cid-37fxchfa><a href="https://app.marsadlab.com" target="_blank" rel="noopener"
                         data-astro-cid-37fxchfa>MARSAD AI ↗</a></li>
                 <li data-astro-cid-37fxchfa><a href="researchers.html" class data-astro-cid-37fxchfa>Team</a></li>
                 <li data-astro-cid-37fxchfa><a href="teaching.html" class data-astro-cid-37fxchfa>Teaching</a></li>
@@ -536,188 +569,305 @@
                 </div>
             </div>
             <h2 class="block-title" id="active" data-astro-cid-xd4qnnss>Active Projects</h2>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>MARSAD AI</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI
-                    (Qatar Research, Development and Innovation Council) · <strong data-astro-cid-xd4qnnss>ID:</strong>
-                    NPRP14C-0916-210015 · <strong data-astro-cid-xd4qnnss>Period:</strong> 2022-10 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>The project develops a dataset and a web-based social
-                    media observatory designed to monitor, analyze, and interpret past, current, and emerging public
-                    discourse across Qatar and the wider Arab world in both Arabic and English.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/digital-citizenship.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>MARSAD AI</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI (Qatar Research, Development and Innovation Council) · <strong
+                            data-astro-cid-xd4qnnss>ID:</strong> NPRP14C-0916-210015 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2022-10 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>The project develops a dataset and a web-based
+                        social media observatory designed to monitor, analyze, and interpret past, current, and emerging
+                        public discourse across Qatar and the wider Arab world in both Arabic and English.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Critical Digital Literacy</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI ·
-                    <strong data-astro-cid-xd4qnnss>ID:</strong> NPRP14C-37878-SP-465 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2022-10 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Part of the Digital Citizenship cluster, focused on
-                    critical literacy frameworks for Arab digital audiences.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/critical-digital-literacy.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Critical Digital Literacy</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI · <strong data-astro-cid-xd4qnnss>ID:</strong> NPRP14C-37878-SP-465 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2022-10 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Part of the Digital Citizenship cluster, focused on
+                        critical literacy frameworks for Arab digital audiences.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Responsible AI and Large Language Models for Social
-                    Good in the Arab World</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI ·
-                    <strong data-astro-cid-xd4qnnss>ID:</strong> ECMV01-0928-250034 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Cross-Institutional Innovation Workshop on responsible
-                    AI and LLM deployment for social good contexts in the Arab world.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/responsible-ai-llms.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Responsible AI and Large Language Models for Social
+                        Good in the Arab World</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI · <strong data-astro-cid-xd4qnnss>ID:</strong> ECMV01-0928-250034 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Cross-Institutional Innovation Workshop on
+                        responsible AI and LLM deployment for social good contexts in the Arab world.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Unified Medical App for Patient-Centric Healthcare
-                    Management in Qatar</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI ·
-                    <strong data-astro-cid-xd4qnnss>ID:</strong> UREP 32-0303-250332 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Development of an integrated medical application
-                    supporting patient-centric healthcare management in Qatar.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/unified-medical-app.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Unified Medical App for Patient-Centric Healthcare
+                        Management in Qatar</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI · <strong data-astro-cid-xd4qnnss>ID:</strong> UREP 32-0303-250332 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Development of an integrated medical application
+                        supporting patient-centric healthcare management in Qatar.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>NexTutor · Pioneering Qatar&#39;s Next-Generation AI
-                    Learning Ecosystem</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI ·
-                    <strong data-astro-cid-xd4qnnss>ID:</strong> LiLEC01-0302-250052 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>AI-driven learning ecosystem tailored to Qatar&#39;s
-                    educational context, integrating generative AI in pedagogy.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/nextutor.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>NexTutor · Pioneering Qatar&#39;s Next-Generation
+                        AI Learning Ecosystem</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI · <strong data-astro-cid-xd4qnnss>ID:</strong> LiLEC01-0302-250052 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>AI-driven learning ecosystem tailored to Qatar&#39;s
+                        educational context, integrating generative AI in pedagogy.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>The AI Sadaqah Journey · Explore, Give, Inspire</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QRDI ·
-                    <strong data-astro-cid-xd4qnnss>ID:</strong> MCSC02-0217-250013 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>AI-powered platform exploring charitable giving and
-                    social inspiration through Islamic cultural frameworks.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/ai-sadaqah.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>The AI Sadaqah Journey · Explore, Give, Inspire
+                    </div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QRDI · <strong data-astro-cid-xd4qnnss>ID:</strong> MCSC02-0217-250013 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>AI-powered platform exploring charitable giving and
+                        social inspiration through Islamic cultural frameworks.</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>CONAN-EN: Building a Counter-Narrative Dataset to
-                    Combat Online Hate Speech through Human-Machine Collaboration</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
-                    Northwestern University Provost&#39;s Grants for Research in Humanities, Social Sciences and the
-                    Arts (HSSA) · <strong data-astro-cid-xd4qnnss>Period:</strong> 2025 to 2026-08 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>This project builds CONAN-EN, an English-language
-                    counter-narrative dataset designed to support effective responses to online hate speech. Through a
-                    human-machine collaborative annotation process, the project pairs hateful content with thoughtful,
-                    context-aware counter-narratives, enabling research on automated systems that can help moderate
-                    online discourse constructively.</div>
-                <div class="grant-link" data-astro-cid-xd4qnnss><a
-                        href="https://www.northwestern.edu/provost/news/2025/2025-provosts-grants-for-research-in-humanities-social-sciences-and-the-arts-announced.html"
-                        target="_blank" rel="noopener" data-astro-cid-xd4qnnss>Announcement ↗</a></div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/conan-en.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>CONAN-EN: Building a Counter-Narrative Dataset to
+                        Combat Online Hate Speech through Human-Machine Collaboration</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        Northwestern University Provost&#39;s Grants for Research in Humanities, Social Sciences and the
+                        Arts (HSSA) · <strong data-astro-cid-xd4qnnss>Period:</strong> 2025 to 2026-08 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>This project builds CONAN-EN, an English-language
+                        counter-narrative dataset designed to support effective responses to online hate speech. Through
+                        a human-machine collaborative annotation process, the project pairs hateful content with
+                        thoughtful, context-aware counter-narratives, enabling research on automated systems that can
+                        help moderate online discourse constructively.</div>
+                    <div class="grant-link" data-astro-cid-xd4qnnss><a
+                            href="https://www.northwestern.edu/provost/news/2025/2025-provosts-grants-for-research-in-humanities-social-sciences-and-the-arts-announced.html"
+                            target="_blank" rel="noopener" data-astro-cid-xd4qnnss>Announcement ↗</a></div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag active" data-astro-cid-xd4qnnss>Active</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Towards Trustworthy Arabic AI: A Foundational Safety
-                    Dataset</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
-                    Northwestern University Qatar Research and Creative Development Grant · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2025 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>This project develops a foundational Arabic safety
-                    evaluation dataset to support the responsible deployment of large language models in Arabic-speaking
-                    contexts. The resource addresses gaps in current safety benchmarks by capturing culturally and
-                    linguistically specific safety concerns across Arabic dialects and regional contexts.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/arabic-ai-safety.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag active"
+                        data-astro-cid-xd4qnnss>Active</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Towards Trustworthy Arabic AI: A Foundational
+                        Safety Dataset</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        Northwestern University Qatar Research and Creative Development Grant · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2025 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>This project develops a foundational Arabic safety
+                        evaluation dataset to support the responsible deployment of large language models in
+                        Arabic-speaking contexts. The resource addresses gaps in current safety benchmarks by capturing
+                        culturally and linguistically specific safety concerns across Arabic dialects and regional
+                        contexts.</div>
+                </div>
             </div>
             <h2 class="block-title" id="completed" data-astro-cid-xd4qnnss>Completed Projects</h2>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Resources and Applications for Detecting and
-                    Classifying Polarized and Hate Speech in Arabic Social Media</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $509,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2021-05 to 2024-05 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Multi-year project producing the ADHAR hate speech
-                    corpus, MARASTA stance corpus, and multiple CheckThat! Lab shared task contributions.</div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Visual Exploration of Chain of Narrators in the Kutub
-                    Al-Sittah</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $600,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2021-04 to 2023-04 · <strong
-                        data-astro-cid-xd4qnnss>Coordinator:</strong> Younss Ait Mou </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Funded the development of Hadith authorship verification
-                    tools, narrator-chain visualization, and semantic analysis of Hadith corpora.</div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>A Multimedial Education Tool for Qatar&#39;s History
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/polarized-hate-speech.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Resources and Applications for Detecting and
+                        Classifying Polarized and Hate Speech in Arabic Social Media</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $509,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2021-05 to 2024-05 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Multi-year project producing the ADHAR hate speech
+                        corpus, MARASTA stance corpus, and multiple CheckThat! Lab shared task contributions.</div>
                 </div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> HBKU
-                    Thematic Research Grant · <strong data-astro-cid-xd4qnnss>Amount:</strong> $300,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2021-01 to 2023-01 · <strong
-                        data-astro-cid-xd4qnnss>Coordinator:</strong> Jens Schneider </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Writing the Future: Metadiscourse and Voice in English
-                    and Arabic Argumentative Writings of Qatari University Students</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $516,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2020-05 to 2022-05 · <strong
-                        data-astro-cid-xd4qnnss>Coordinator:</strong> Abdelhamid Ahmed </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Produced the QCAW 1.0 bilingual writer corpus
-                    (LDC2022T04).</div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Developing an HBKU Index of Social Cohesion</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> HBKU ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> QAR 700,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2022-08 · <strong
-                        data-astro-cid-xd4qnnss>Coordinator:</strong> Abdolmehdi Riazi </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Exploration and intervention at the state and region
-                    levels.</div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>COVID-19 Misinformation and Social Networks Analysis in
-                    Qatar</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> HBKU
-                    Innovation Center · <strong data-astro-cid-xd4qnnss>Amount:</strong> $100,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2020-12 to 2021-08 </div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>A Personalized and Intelligent Digital Mental Health
-                    Platform for Qatar and the Arab World</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $395,720 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2020-11 to 2022-07 · <strong
-                        data-astro-cid-xd4qnnss>Coordinator:</strong> Mowafa Househ </div>
-            </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Pro2Faker · Proactive Profiling of Fake News Spreaders
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/kutub-al-sittah.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Visual Exploration of Chain of Narrators in the
+                        Kutub Al-Sittah</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $600,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2021-04 to 2023-04 · <strong
+                            data-astro-cid-xd4qnnss>Coordinator:</strong> Younss Ait Mou </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Funded the development of Hadith authorship
+                        verification tools, narrator-chain visualization, and semantic analysis of Hadith corpora.</div>
                 </div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
-                    Spanish Agency of Innovation (CDTI), Ministry of Science · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2020-09 to 2022-09 </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>The First International Workshop on Arabic Big Data
-                    &amp; AI</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $35,000 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2020-04 to 2021-04 </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/qatar-history.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>A Multimedial Education Tool for Qatar&#39;s
+                        History</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        HBKU Thematic Research Grant · <strong data-astro-cid-xd4qnnss>Amount:</strong> $300,000 ·
+                        <strong data-astro-cid-xd4qnnss>Period:</strong> 2021-01 to 2023-01 · <strong
+                            data-astro-cid-xd4qnnss>Coordinator:</strong> Jens Schneider </div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role lead" data-astro-cid-xd4qnnss>Lead
-                    PI</span> <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Building Multi-Arabic Dialect Resources</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> HBKU
-                    CHSS Faculty Internal Start-up Grant · <strong data-astro-cid-xd4qnnss>Amount:</strong> QAR 50,000 ·
-                    <strong data-astro-cid-xd4qnnss>Period:</strong> 2019-05 to 2021-04 </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/qcaw-grant.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Writing the Future: Metadiscourse and Voice in
+                        English and Arabic Argumentative Writings of Qatari University Students</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $516,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2020-05 to 2022-05 · <strong
+                            data-astro-cid-xd4qnnss>Coordinator:</strong> Abdelhamid Ahmed </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Produced the QCAW 1.0 bilingual writer corpus
+                        (LDC2022T04).</div>
+                </div>
             </div>
-            <div class="grant" data-astro-cid-xd4qnnss> <span class="grant-role " data-astro-cid-xd4qnnss>Co-PI</span>
-                <span class="status-tag completed" data-astro-cid-xd4qnnss>Completed</span>
-                <div class="grant-title" data-astro-cid-xd4qnnss>Arabic Author Profiling for Cyber-Security</div>
-                <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong> QNRF ·
-                    <strong data-astro-cid-xd4qnnss>Amount:</strong> $719,526 · <strong
-                        data-astro-cid-xd4qnnss>Period:</strong> 2017-02 to 2020-06 </div>
-                <div class="grant-desc" data-astro-cid-xd4qnnss>Major project producing ARAP-Tweet, deception detection
-                    datasets, and the FIRE Author Profiling shared tasks for Arabic.</div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/social-cohesion-index.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Developing an HBKU Index of Social Cohesion</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        HBKU · <strong data-astro-cid-xd4qnnss>Amount:</strong> QAR 700,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2022-08 · <strong
+                            data-astro-cid-xd4qnnss>Coordinator:</strong> Abdolmehdi Riazi </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Exploration and intervention at the state and region
+                        levels.</div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/covid-misinfo.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>COVID-19 Misinformation and Social Networks
+                        Analysis in Qatar</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        HBKU Innovation Center · <strong data-astro-cid-xd4qnnss>Amount:</strong> $100,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2020-12 to 2021-08 </div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/mental-health-platform.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>A Personalized and Intelligent Digital Mental
+                        Health Platform for Qatar and the Arab World</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $395,720 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2020-11 to 2022-07 · <strong
+                            data-astro-cid-xd4qnnss>Coordinator:</strong> Mowafa Househ </div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/pro2faker.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Pro2Faker · Proactive Profiling of Fake News
+                        Spreaders</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        Spanish Agency of Innovation (CDTI), Ministry of Science · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2020-09 to 2022-09 </div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/iwabigdai.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>The First International Workshop on Arabic Big Data
+                        &amp; AI</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $35,000 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2020-04 to 2021-04 </div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/dialect-resources.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role lead"
+                        data-astro-cid-xd4qnnss>Lead PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Building Multi-Arabic Dialect Resources</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        HBKU CHSS Faculty Internal Start-up Grant · <strong data-astro-cid-xd4qnnss>Amount:</strong> QAR
+                        50,000 · <strong data-astro-cid-xd4qnnss>Period:</strong> 2019-05 to 2021-04 </div>
+                </div>
+            </div>
+            <div class="grant" data-astro-cid-xd4qnnss>
+                <div class="grant-thumb"
+                    style="background-image: linear-gradient(rgba(240,239,232,0.35), rgba(240,239,232,0.35)), url('img/projects/author-profiling-cybersec.jpg');"
+                    data-astro-cid-xd4qnnss></div>
+                <div class="grant-body" data-astro-cid-xd4qnnss> <span class="grant-role "
+                        data-astro-cid-xd4qnnss>Co-PI</span> <span class="status-tag completed"
+                        data-astro-cid-xd4qnnss>Completed</span>
+                    <div class="grant-title" data-astro-cid-xd4qnnss>Arabic Author Profiling for Cyber-Security</div>
+                    <div class="grant-meta" data-astro-cid-xd4qnnss> <strong data-astro-cid-xd4qnnss>Funder:</strong>
+                        QNRF · <strong data-astro-cid-xd4qnnss>Amount:</strong> $719,526 · <strong
+                            data-astro-cid-xd4qnnss>Period:</strong> 2017-02 to 2020-06 </div>
+                    <div class="grant-desc" data-astro-cid-xd4qnnss>Major project producing ARAP-Tweet, deception
+                        detection datasets, and the FIRE Author Profiling shared tasks for Arabic.</div>
+                </div>
             </div>
         </div>
     </div>
